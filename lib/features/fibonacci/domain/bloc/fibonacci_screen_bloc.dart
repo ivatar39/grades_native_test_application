@@ -53,15 +53,15 @@ class FibonacciScreenBloc extends Bloc<FibonacciScreenEvent, FibonacciScreenStat
     final n = _parseValue(value);
     final stopwatch = Stopwatch()..start();
     final firstStopWatch = stopwatch.elapsedTicks;
-    final logMessageStart = 'ffiCalculation Start: $firstStopWatch';
+    final logMessageStart = 'dartCalculation Start: $firstStopWatch';
     final logs = List<String>.from(state.computationLog)..add(logMessageStart);
 
     final fib = basicFibonacciService.getFibonacci(n);
 
     final lastStopWatch = stopwatch.elapsedTicks;
-    final logMessageEnd = 'ffiCalculation End: $lastStopWatch';
+    final logMessageEnd = 'dartCalculation End: $lastStopWatch';
     logs.add(logMessageEnd);
-    final logMessageFinal = 'ffiCalculation TicksDiff: ${lastStopWatch - firstStopWatch}';
+    final logMessageFinal = 'dartCalculation TicksDiff: ${lastStopWatch - firstStopWatch}';
     logs.add(logMessageFinal);
     emit(
       state.copyWith(
